@@ -50,7 +50,7 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
       requestAnimationFrame(() => skewScrolling());
     };
     requestAnimationFrame(() => skewScrolling());
-  }, []);
+  }, [scrollEase]);
 
   //set the height of the body.
   useEffect(() => {
