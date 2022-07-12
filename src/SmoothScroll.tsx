@@ -16,8 +16,6 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
 
   const scrollContainer = useRef<HTMLDivElement>(null);
 
-  const sizeRef = useRef(size);
-
   // Run scrollrender once page is loaded.
   useEffect(() => {
     // Configs
@@ -37,14 +35,10 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
       data.rounded = Math.round(data.previous * 100) / 100;
 
       // Difference between
-      const difference = data.current - data.rounded;
-      const acceleration = difference / sizeRef.current.width;
-      const velocity = +acceleration;
-      const skew = velocity * 7.5;
 
       //Assign skew and smooth scrolling to the scroll container
       if (scrollContainer.current)
-        scrollContainer.current.style.transform = `translate3d(0, -${data.rounded}px, 0) skewY(${skew}deg)`;
+        scrollContainer.current.style.transform = `translate3d(0, -${data.rounded}px, 0)`;
 
       //loop vai raf
       requestAnimationFrame(() => skewScrolling());
