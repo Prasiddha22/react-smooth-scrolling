@@ -12,6 +12,8 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
   //Hook to grab window size
   const size: Sizes = useWindowSize();
 
+  var scrollEase = `0.0${ease.toString()}`;
+
   const scrollContainer = useRef<HTMLDivElement>(null);
 
   const sizeRef = useRef(size);
@@ -20,7 +22,7 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
   useEffect(() => {
     // Configs
     const data = {
-      ease: 0.04,
+      ease: +scrollEase,
       current: 0,
       previous: 0,
       rounded: 0,
