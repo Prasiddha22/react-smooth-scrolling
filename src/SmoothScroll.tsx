@@ -3,9 +3,12 @@ import './SmoothScroll.css';
 
 import { useWindowSize, Sizes } from './useWindowResize';
 
-// import images from './images'
+type Props = {
+  children: React.ReactNode;
+  ease: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+};
 
-export function SmoothScroll({ children }: { children: React.ReactNode }) {
+export function SmoothScroll({ children, ease = 4 }: Props) {
   //Hook to grab window size
   const size: Sizes = useWindowSize();
 
