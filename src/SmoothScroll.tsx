@@ -65,10 +65,7 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
 
   return (
     <div className="react-smooth-scroll-app">
-      <div ref={scrollContainer}>
-        {scrollEase}
-        {children}
-      </div>
+      <div ref={scrollContainer}>{children}</div>
     </div>
   );
 }
