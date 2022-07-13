@@ -20,7 +20,7 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
   useEffect(() => {
     // Configs
     const data = {
-      ease: +scrollEase,
+      ease: parseFloat(scrollEase),
       current: 0,
       previous: 0,
       rounded: 0,
@@ -35,9 +35,14 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
       data.rounded = Math.round(data.previous * 100) / 100;
 
       // Difference between
+      // const difference = data.current - data.rounded
+      // const acceleration = difference / sizeRef.current.width
+      // const velocity = +acceleration
+      // const skew = velocity * 7.5
 
       //Assign skew and smooth scrolling to the scroll container
       if (scrollContainer.current)
+        // scrollContainer.current.style.transform = `translate3d(0, -${data.rounded}px, 0) skewY(${skew}deg)`
         scrollContainer.current.style.transform = `translate3d(0, -${data.rounded}px, 0)`;
 
       //loop vai raf
@@ -48,19 +53,22 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
 
   //set the height of the body.
   useEffect(() => {
+    const setBodyHeight = () => {
+      document.body.style.height = `${
+        scrollContainer.current?.getBoundingClientRect().height
+      }px`;
+    };
     setBodyHeight();
-  }, [size.height]);
+  }, [size]);
 
   //Set the height of the body to the height of the scrolling div
-  const setBodyHeight = () => {
-    document.body.style.height = `${
-      scrollContainer.current?.getBoundingClientRect().height
-    }px`;
-  };
 
   return (
-    <div ref={scrollContainer} className="scroll">
-      {children}
+    <div className="App">
+      <div ref={scrollContainer}>
+        {scrollEase}
+        {children}
+      </div>
     </div>
   );
 }
