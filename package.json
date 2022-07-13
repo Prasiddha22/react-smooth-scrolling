@@ -33,7 +33,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-smooth-scrolling",
+  "name": "@prasiddha/react-smooth-scrolling",
   "author": "prasiddha22",
   "module": "dist/react-smooth-scrolling.esm.js",
   "size-limit": [
