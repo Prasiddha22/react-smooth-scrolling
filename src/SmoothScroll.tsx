@@ -64,7 +64,7 @@ export function SmoothScroll({ children, ease = 4 }: Props) {
   //Set the height of the body to the height of the scrolling div
 
   return (
-    <div className="App">
+    <div className="react-smooth-scroll-app">
       <div ref={scrollContainer}>
         {scrollEase}
         {children}

@@ -1,0 +1,16 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    overscroll-behavior-y: none;
+}
+
+.react-smooth-scroll-app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
